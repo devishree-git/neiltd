@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<template id="report_saleorder_document_dusal" inherit_id="sale.report_saleorder_document">
+			<xpath expr="//t/div[hasclass('page')]/table[hasclass('table') and (hasclass('o_main_table') or hasclass('table-condensed') or hasclass('table-sm'))] | //t/div[hasclass('page')]/t/table[hasclass('table') and (hasclass('o_main_table') or hasclass('table-condensed') or hasclass('table-sm'))]" position="before">
+				<t t-set="number" t-value="0"/>
+			</xpath>
+			<xpath expr="//t/div[hasclass('page')]/table[hasclass('table') and (hasclass('o_main_table') or hasclass('table-condensed') or hasclass('table-sm'))]/thead/tr/th[1] | //t/div[hasclass('page')]/t/table[hasclass('table') and (hasclass('o_main_table') or hasclass('table-condensed') or hasclass('table-sm'))]/thead/tr/th[1]" position="before">
+				<th t-if="doc.print_line_number">
+					<strong>No.</strong>
+				</th>
+				<th t-if="doc.print_product_image">
+					<strong>Image</strong>
+				</th>
+			</xpath>
+			<xpath
+				expr="//tbody[hasclass('sale_tbody')]/*/tr/td[1] | //tbody[hasclass('sale_tbody')]/*/tr/*/td[1] | //t/div[hasclass('page')]/table[hasclass('table') and (hasclass('o_main_table') or hasclass('table-condensed') or hasclass('table-sm'))]/tbody/*/tr/td[1] | //t/div[hasclass('page')]/table[hasclass('table') and (hasclass('o_main_table') or hasclass('table-condensed') or hasclass('table-sm'))]/*/tr/*/td[1]"
+				position="before">
+				<td t-if="doc.print_line_number">
+					<t t-set="number" t-value="number+1"/>
+					<span t-esc="number"/>
+				</td>
+				<td t-if="doc.print_product_image">
+					<span t-if="doc.image_size == 'small'"><img t-if="line.product_image_small" t-att-src="'data:image/png;base64,%s' % to_text(line.product_image_small)" style="width: unset; max-width: 100px;"/></span>
+					<span t-if="doc.image_size == 'medium'"><img t-if="line.product_image_medium" t-att-src="'data:image/png;base64,%s' % to_text(line.product_image_medium)" style="width: unset; max-width: 200px;"/></span>
+					<span t-if="doc.image_size == 'big'"><img t-if="line.product_image" t-att-src="'data:image/png;base64,%s' % to_text(line.product_image)" style="width: unset; max-width: 400px;"/></span>
+
+				</td>
+			</xpath>
+		</template>
+
+		<template id="report_invoice_document_dusal" inherit_id="account.report_invoice_document">
+			<xpath expr="//table[@name='invoice_line_table'] | //t/div[hasclass('page')]/table[hasclass('table') and (hasclass('o_main_table') or hasclass('table-condensed') or hasclass('table-sm'))] | //t/div[hasclass('page')]/t/table[hasclass('table') and (hasclass('o_main_table') or hasclass('table-condensed') or hasclass('table-sm'))]" position="before">
+				<t t-set="number" t-value="0"/>
+			</xpath>
+			<xpath expr="//table[@name='invoice_line_table']/thead/tr/th[1] | //t/div[hasclass('page')]/table[hasclass('table') and (hasclass('o_main_table') or hasclass('table-condensed') or hasclass('table-sm'))]/thead/tr/th[1] | //t/div[hasclass('page')]/t/table[hasclass('table') and (hasclass('o_main_table') or hasclass('table-condensed') or hasclass('table-sm'))]/thead/tr/th[1]" position="before">
+				<th t-if="o.print_line_number">
+					<strong>No.</strong>
+				</th>
+				<th t-if="o.print_product_image">
+					<strong>Image</strong>
+				</th>
+			</xpath>
+			<xpath
+				expr="//table[@name='invoice_line_table']/tbody/*/tr[1]/td[1] | //table[@name='invoice_line_table']/*/tr[1]/*/td[1] | //tbody[hasclass('invoice_tbody')]/*/tr[1]/td[1] | //tbody[hasclass('invoice_tbody')]/*/tr[1]/*/td[1] | //t/div[hasclass('page')]/table[hasclass('table') and (hasclass('o_main_table') or hasclass('table-condensed') or hasclass('table-sm'))]/tbody/*/tr[1]/td[1] | //t/div[hasclass('page')]/table[hasclass('table') and (hasclass('o_main_table') or hasclass('table-condensed') or hasclass('table-sm'))]/*/tr[1]/*/td[1]"
+				position="before">
+				<td t-if="o.print_line_number">
+					<t t-set="number" t-value="number+1"/>
+					<span t-esc="number"/>
+				</td>
+				<td t-if="o.print_product_image">
+					<span t-if="o.image_size == 'small'"><img t-if="line.product_image_small" t-att-src="'data:image/png;base64,%s' % to_text(line.product_image_small)" style="width: unset; max-width: 100px;"/></span>
+					<span t-if="o.image_size == 'medium'"><img t-if="line.product_image_medium" t-att-src="'data:image/png;base64,%s' % to_text(line.product_image_medium)" style="width: unset; max-width: 200px;"/></span>
+					<span t-if="o.image_size == 'big'"><img t-if="line.product_image" t-att-src="'data:image/png;base64,%s' % to_text(line.product_image)" style="width: unset; max-width: 400px;"/></span>
+
+				</td>
+			</xpath>
+		</template>
+
+		<!-- Preview template -->
+		<template id="sale_order_portal_content_dusal" inherit_id="sale.sale_order_portal_content">
+			<xpath expr="//table[@id='sales_order_table']" position="before">
+				<t t-set="number" t-value="0"/>
+			</xpath>
+			<xpath expr="//table[@id='sales_order_table']/thead/tr/th[1]" position="before">
+				<th t-if="sale_order.print_line_number"><strong>No.</strong></th>
+				<th t-if="sale_order.print_product_image"><strong>Image</strong></th>
+			</xpath>
+			<xpath expr="//table[@id='sales_order_table']/tbody/*[@t-as='line']/tr[1]/*/td[1]" position="before">
+				<td t-if="sale_order.print_line_number">
+					<t t-set="number" t-value="number+1"/>
+					<span t-esc="number"/>
+				</td>
+				<td t-if="sale_order.print_product_image">
+					<span t-if="sale_order.image_size == 'small'"><img t-if="line.product_image_small" t-att-src="'data:image/png;base64,%s' % to_text(line.product_image_small)" style="width: unset; max-width: 100%;"/></span>
+					<span t-if="sale_order.image_size == 'medium'"><img t-if="line.product_image_medium" t-att-src="'data:image/png;base64,%s' % to_text(line.product_image_medium)" style="width: unset; max-width: 100%;"/></span>
+					<span t-if="sale_order.image_size == 'big'"><img t-if="line.product_image" t-att-src="'data:image/png;base64,%s' % to_text(line.product_image)" style="width: unset; max-width: 100%;"/></span>
+				</td>
+			</xpath>
+		</template>
+	</data>
+</openerp>
