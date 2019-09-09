@@ -9,6 +9,7 @@
                     <group>
                         <group>
                             <field name="file" filename="name"/>
+                            <field name="selection_type"/>
                         </group>
                         <group>
                             <field name="name" invisible="1"/>

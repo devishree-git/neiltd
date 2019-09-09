@@ -10,7 +10,7 @@
         Long description of module's purpose
     """,
 
-    'depends': ['base', 'sale'],
+    'depends': ['base', 'sale', 'product'],
 
     'data': [
         'wizard/report_wizard_view.xml',
