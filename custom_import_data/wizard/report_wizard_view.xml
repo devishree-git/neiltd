@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="import_csv_form_view" model="ir.ui.view">
+        <field name="name">Import Data</field>
+        <field name="model">import.all.data</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="file" filename="name"/>
+                        </group>
+                        <group>
+                            <field name="name" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Import" class="oe_highlight" type="object" name="import_data"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_import_csv">
+        <field name="name">Import Partner</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">import.all.data</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="import_all_data"
+              name="Import Data"
+              parent="sale.menu_sale_config"
+              action="action_import_csv"
+              sequence="50"/>
+
+</odoo>
