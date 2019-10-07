@@ -1,0 +1,5 @@
+name,list_price,custom_main_image,product_image_ids/custom_product_images_names,product_image_ids/custom_product_images
+T-shirt,100,/a/b/image-1.jpg,"T-shirt-1,T-shirt-2","/a/b/image-2.jpg,/a/b/image-3.jpg"
+Pen,10,/a/b/image-4.jpg,"Pen-1,Pen-2","/a/b/image-5.jpg,/a/b/image-6.jpg"
+Paper,20,/a/b/image-10.jpg,"Paper-1,Paper-2","/a/b/image-8.jpg,/a/b/image-9.jpg"
+Chair,500,,,"/a/b/image-13.jpg,/a/b/image-15.jpg"
