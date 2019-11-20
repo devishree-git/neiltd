@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="custom_external_layout">
+        <div class="header">
+            <table width="100%">
+                <table width="40%" style="font-size:10px">
+                    <table width="40%" border="0">
+                        <tr>
+                            <td width="10%"/>
+                            <td width="10%"/>
+                            <td width="10%"/>
+                            <td width="10%">
+                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%y')"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <table height="200px" width="40%" border="0" >
+                        <tr>
+                            <td>
+                                <b>
+                                    <t t-esc="o.partner_id.name"/>
+                                    <t t-esc="o.partner_id.street"/>
+                                    <t t-esc="o.partner_id.city"/>
+                                    <t t-esc="o.partner_id.zip"/>
+                                </b>
+                            </td>
+                        </tr>
+                    </table>
+                </table>
+            </table>
+        </div>
+    </template>
+
+</odoo>
