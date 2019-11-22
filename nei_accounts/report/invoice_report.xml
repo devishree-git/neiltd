@@ -4,7 +4,7 @@
         <report
             id="account_invoices1"
             model="account.invoice"
-            string="NEI Invoices"
+            string="NEI Tax Invoices"
             report_type="qweb-pdf"
             paperformat="nei_accounts.paperformat_custom"
             name="nei_accounts.report_invoice1"
