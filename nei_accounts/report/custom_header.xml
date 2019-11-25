@@ -8,7 +8,7 @@
         <field name="page_height">217</field>
         <field name="page_width">260</field>
         <field name="orientation">Portrait</field>
-        <field name="margin_top">3</field>
+        <field name="margin_top">0.1</field>
         <field name="margin_bottom">3</field>
         <field name="margin_left">3</field>
         <field name="margin_right">3</field>
@@ -22,9 +22,7 @@
        <t t-if="not o" t-set="o" t-value="doc"/>
             <table name="main" width="100%" height="226.7717px">
                 <table name="T1" width="50%">
-                    <table name="t1" width="50%" border="0" height="75.59px" style="font-size:28px">
-                        <tr><td><b>INVOICE</b></td></tr>
-                    </table>
+                    
                     <table name="t2" height="15px" width="50%" style="font-size:12px">
                         <tr>
                             <td width="10%"/>
@@ -53,7 +51,7 @@
             
             
             
-            <table width="100%" height="15px" border="0" style="font-size:10px">
+            <table width="100%" height="18px" border="0" style="font-size:10px">
             <tr height="8px">
                 <td width="40px" align="center"><t t-esc="o.name"/></td>
                 <td width="40px" align="center"><t t-esc="o.date_invoice"/></td>
