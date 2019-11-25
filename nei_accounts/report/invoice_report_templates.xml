@@ -8,19 +8,19 @@
                 
                     <table name="sub-t1" width="100%" height="15px" border="1" style="font-size:10px">
                         <tr height="8px">
-                            <td width="30px" class="text-center"><t t-esc="o.name"/></td>
-                            <td width="30px" class="text-center"><t t-esc="o.date_invoice"/></td>
-                            <td width="30px" class="text-center"><t t-esc="o.name"/></td>
-                            <td width="30px" class="text-center"><t t-esc="o.date_due"/></td>
-                            <td width="30px" class="text-center">End of List</td>
-                            <td width="30px" class="text-center"></td>
-                            <td width="30px" class="text-center"></td>
-                            <td width="140px" class="text-center"></td>
+                            <td width="40px" class="text-center"><t t-esc="o.name"/></td>
+                            <td width="40px" class="text-center"><t t-esc="o.date_invoice"/></td>
+                            <td width="40px" class="text-center"><t t-esc="o.name"/></td>
+                            <td width="40px" class="text-center"><t t-esc="o.date_due"/></td>
+                            <td width="40px" class="text-center">End of List</td>
+                            <td width="40px" class="text-center"></td>
+                            <td width="40px" class="text-center"></td>
+                            <td width="70px" class="text-center"></td>
                         </tr>
                     </table>
                     <br/><br/>
                     
-                    <table name="sub-t1" width="100%" height="600px" border="1" style="font-size:12px">
+                    <table name="sub-t1" width="100%" height="450px" border="1" style="font-size:12px">
                         <tbody class="invoice_tbody">
                         <t t-foreach="o.invoice_line_ids" t-as="line">
                             <tr>
@@ -43,8 +43,8 @@
                     
                     <table name="sub-t2-1" border="1" style="font-size:15px">
                         <tr class="is-subtotal text-right">
-                            <td width="553.92px"></td>
-                            <td width="180.04px">
+                            <td width="566.92px"></td>
+                            <td width="193.04px">
                                 <t><span t-field="o.amount_total"/></t><br/>
                                 <t><span t-field="o.amount_tax"/></t><br/>
                                 <t><span t-field="o.residual"/></t><br/>
