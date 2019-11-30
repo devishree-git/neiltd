@@ -19,6 +19,7 @@
 
     <template id="custom_external_layout">
        <t t-name="nei_accounts.custom_external_layout">
+       <t t-name="nei_accounts.custom_external_layout">
        <t t-if="not o" t-set="o" t-value="doc"/>
             <table name="main" width="100%" height="226.7717px">
                 <table name="T1" width="50%">
@@ -63,28 +64,49 @@
                 <td width="70px" align="center"/>
             </tr>
         </table>
-        <table width="100%" height="450px" border="0" style="font-size:12px">
-          <tbody>
-            <t t-foreach="o.invoice_line_ids" t-as="line">
-                <tr>
-                    <t name="account_invoice_line_accountable">
-                        <td name="code" width="113px" class="text-left">
-                            <span t-field="line.product_id.default_code"/>
-                        </td>
-                        <td width="249.45px" align="left" name="description" class="text-left"><span t-field="line.product_id.name"/></td>
-                        <td width="52.91px" align="right" name="unit" class="text-right"><span t-field="line.uom_id.name"/></td>
-                        <td width="64.25px" align="right" name="qty" class="text-right"><span t-field="line.quantity"/></td>
-                        <td width="98.27px" align="right" name="price" class="text-right"><span t-field="line.price_unit"/></td>
-                        <td width="68.03px" align="right" name="disc" class="text-right"><span t-field="line.discount"/></td>
-                        <td width="102.05px" align="right" name="net amount" class="text-right"><span t-field="line.price_subtotal"/></td>
-                        <td width="22.68px"  align="right" name="vat" class="text-right"><span t-field="line.id"/></td>
-                    </t>
-                 </tr>
-                 </t>
+        <table height="450px" width="100%" border="0">
+          
+          <t t-set="ten" t-value="15"/>
+          <t t-set="one" t-value="1"/>
+          <t t-set="num" t-value="0"/>
+          
+          <table width="100%" border="0" style="font-size:12px">
+              <t t-foreach="o.invoice_line_ids" t-as="line">
+                <t t-set="num" t-value="num + one"/>
+                <tr name="line">
+                  <td name="code" width="113px" height="15px" class="text-left"><span t-field="line.product_id.default_code"/></td>
+                  <td width="249.45px" height="20px" align="left" name="description" class="text-left"><span t-field="line.product_id.name"/></td>
+                  <td width="32.91px" height="15px" align="right" name="unit" class="text-right"><span t-field="line.uom_id.name"/></td>
+                  <td width="54.25px" height="15px" align="right" name="qty" class="text-right"><span t-field="line.quantity"/></td>
+                  <td width="98.27px" height="15px" align="right" name="price" class="text-right"><span t-field="line.price_unit"/></td>
+                  <td width="38.03px" height="15px" align="right" name="disc" class="text-right"><span t-field="line.discount"/></td>
+                  <td width="102.05px" height="15px" align="right" name="net amount" class="text-right"><span t-field="line.price_subtotal"/></td>
+                  <td width="22.68px" height="15px" align="right" name="vat" class="text-right"><span t-esc="num"/></td>
+                </tr>
+              </t>
+              
+              
+          </table>
+          <table width="100%" border="0" style="font-size:12px">
+            <tbody>
+              <t t-set="r" t-value="ten - num"/>
+              <tr><td>
+              <t t-set="a" t-value="range(one,r)"/></td></tr>
+              <tr><td>
+                 <t t-foreach="a" t-as="p">
+                  <table  width="100%" border="0">
+                    <tr>
+                     <td>.</td>
+                    </tr>
+                  </table>
+                 </t></td>
+              </tr>
             </tbody>
+          </table>
+          
+          
         </table>
-        
-        <table name="sub-t2-1" width="100%" border="0" style="font-size:12px" >
+        <table name="sub-t2-1" width="100%" border="0" style="font-size:12px">
             <tr>
                 <td width="566.92px"/>
                 <td width="193.04px" align="right">
@@ -93,14 +115,9 @@
                     <t><span t-field="o.residual"/></t><br/>
                 </td>
             </tr>
-        </table>
-        
-            
-            
-            
-            
-
+           </table>
         <br/><br/>
+    </t>
     </t>
     </template>
 
